@@ -1,14 +1,14 @@
-- name: mkdir {{ apps_dir }}
-  file: path={{ apps_dir }} state=directory owner=django group=django mode=0755
+- name: chmod 755 {{ home_dir }}
+  file: path={{ home_dir }} owner=django group=django mode=0755
   tags:
     - create-mysite
 
 - name: create sample app
-  shell: sudo su - django -c "cd {{ apps_dir }} && django-admin.py startproject {{ project }}"
+  shell: sudo su - django -c "rm -rf {{ apps_dir }} && cd {{ home_dir }} && django-admin.py startproject {{ project }}"
   tags:
     - create-mysite
 
-- name: mkdir {{ apps_dir }}
+- name: mkdir {{ apps_dir }}/static
   file: path={{ apps_dir }}/{{ project }}/static state=directory owner=django group=django mode=0755
   tags:
     - create-mysite

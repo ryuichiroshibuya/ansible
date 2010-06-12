@@ -1,5 +1,6 @@
-apps_dir: /home/django/apps
-project: mysite
+home_dir: /home/django/
+project: radio
+apps_dir: /home/django/{{ project }}
 
 requestments:
    - Django==1.6.8
