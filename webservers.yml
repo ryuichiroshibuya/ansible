@@ -1,0 +1,7 @@
+# file: webservers.yml
+ - hosts: webservers
+   remote_user: ec2_user
+   sudo: True
+   roles:
+       - common
+       - nginx

@@ -1,0 +1,13 @@
+# file: roles/common/tasks/os.yml
+
+- name: locate setup
+  template: src=i18n.tpl dest=/etc/sysconfig/i18n owner=root group=root mode=0644
+  tags: os
+
+- name: timezone Japan
+  copy: src=/usr/share/zoneinfo/Japan dest=/etc/localtime
+  tags: os
+
+- name: keyboard Japan
+  template: src=keyboard.tpl dest=/etc/sysconfig/keyboard owner=root group=root mode=0644
+  tags: os

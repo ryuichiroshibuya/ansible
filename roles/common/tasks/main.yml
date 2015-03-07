@@ -1,0 +1,7 @@
+# file: roles/common/tasks/main.yml
+
+- include: os.yml
+- include: ntp.yml
+- include: yum-upgrade.xml
+- include: postfix.yml
+- include: iptables.yml

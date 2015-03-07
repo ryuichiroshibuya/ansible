@@ -1,0 +1,5 @@
+# file: roles/common/tasks/yum-upgrade.xml
+
+- name: upgrade all packages
+  yum: name=* state=latest
+  tags: yum

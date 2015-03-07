@@ -1,0 +1,2 @@
+# file: group_vars/esx
+ntp: 0.centos.pool.ntp.org

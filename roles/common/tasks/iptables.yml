@@ -1,0 +1,6 @@
+# file: roles/common/tasks/postfix.yml
+
+- name: be sure iptables is stopped and disabled
+  service: name=iptables state=stopped enabled=no
+  tags: iptables
+

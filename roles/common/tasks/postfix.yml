@@ -1,0 +1,6 @@
+# file: roles/common/tasks/postfix.yml
+
+- name: be sure postfix is stopped and disabled
+  service: name=postfix state=stopped enabled=no
+  tags: postfix
+

@@ -1,0 +1,6 @@
+# file: dbservers.yml
+- hosts: dbservers
+  remote_user: ec2_user
+  sudo: True
+  roles:
+    - common

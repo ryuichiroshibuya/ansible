@@ -1,0 +1,20 @@
+# file: production
+
+[pro-webservers]
+172.16.100.200
+172.16.100.201
+
+[pro-dbservers]
+172.16.100.202
+
+# webservers in all geos
+[webservers:children]
+pro-webservers
+# dbservers in all geos
+[dbservers:children]
+pro-dbservers
+
+# everything in the esx geo
+[pro:children]
+pro-webservers
+pro-dbservers

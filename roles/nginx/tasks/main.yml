@@ -1,0 +1,3 @@
+# file: roles/common/tasks/nginx.yml
+
+- include: nginx.yml

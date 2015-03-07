@@ -1,0 +1,20 @@
+# file: roles/common/tasks/nginx.yml
+
+- name: be sure repo is installed
+  yum: name=http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm state=present
+  tags: nginx
+
+- name: be sure nginx is installed
+  yum: name=nginx state=present
+  tags: nginx
+
+#- name: be sure ntp is configured
+#  template: src=ntp.conf.tpl dest=/etc/ntp.conf
+#  notify:
+#    - restart ntpd
+#  tags: ntp
+
+- name: be sure nginx is running and enabled
+  service: name=nginx state=running enabled=yes
+  tags: nginx 
+
