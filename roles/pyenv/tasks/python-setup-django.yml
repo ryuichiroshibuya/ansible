@@ -1,0 +1,9 @@
+- name: install python ez_setup.py
+  shell: sudo -u {{ owner }} bash -cl "curl -O {{ url_ez_setup }} | python"
+  tags:
+    - python-setup-django
+
+- name: install python pip
+  shell: sudo -u {{ owner }} bash -cl "curl -O {{ url_get_pip }} | python"
+  tags:
+    - python-setup-django

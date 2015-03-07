@@ -1,20 +1,20 @@
 # file: production
 
-[stg-webservers]
-172.16.200.200
-172.16.200.201
+[pro-webservers]
+172.16.100.200
+172.16.100.201
 
-[stg-dbservers]
-172.16.200.202
+[pro-dbservers]
+172.16.100.202
 
 # webservers in all geos
 [webservers:children]
-stg-webservers
+pro-webservers
 # dbservers in all geos
 [dbservers:children]
-stg-dbservers
+pro-dbservers
 
 # everything in the esx geo
-[stg:children]
-stg-webservers
-stg-dbservers
+[pro:children]
+pro-webservers
+pro-dbservers

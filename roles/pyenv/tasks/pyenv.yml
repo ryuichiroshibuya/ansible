@@ -1,0 +1,30 @@
+
+- name: install the required rpm
+  shell: yum install -y vim gcc gcc-c++ make git openssl-devel zlib-devel readline-devel sqlite-devel bzip2-devel
+  tags:
+    - pyenv
+
+- name: git clone pyenv
+  shell: rm -rf ~/.pyenv && git clone git://github.com/yyuu/pyenv.git ~/.pyenv
+  tags:
+    - pyenv
+
+- name: template bashrc
+  template: src=bashrc.tpl dest=~/.bashrc
+  tags:
+    - pyenv
+
+- name: pyenv install 2.7.9
+  shell: ~/.pyenv/bin/pyenv install 2.7.9
+  tags:
+    - pyenv
+
+- name: pyenv rehash
+  shell: ~/.pyenv/bin/pyenv rehash
+  tags:
+    - pyenv
+
+- name: pyenv global 2.7.9
+  shell: ~/.pyenv/bin/pyenv global 2.7.9
+  tags:
+    - pyenv

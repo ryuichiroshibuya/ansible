@@ -1,3 +1,6 @@
 # file: group_vars/all
 ntp: ntp-boston.example.com
 backup: backup-boston.example.com
+
+nameserver1: 8.8.8.8
+nameserver2: 8.8.4.4

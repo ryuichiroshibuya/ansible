@@ -11,3 +11,7 @@
 - name: keyboard Japan
   template: src=keyboard.tpl dest=/etc/sysconfig/keyboard owner=root group=root mode=0644
   tags: os
+
+- name: setup resolv.conf
+  template: src=resolv.conf.tpl dest=/etc/resolv.conf owner=root group=root mode=0444
+  tags: os

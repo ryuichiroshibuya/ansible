@@ -1,0 +1,23 @@
+# file: roles/mysql/tasks/mysql-client.yml
+
+- name: be sure mysql is uninstalled
+  yum: name="mysql-*" state=present
+  tags: mysql
+
+- name: be sure repo is installed
+  yum: name=http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm state=present
+  tags: mysql
+
+- name: be sure mysql-client is installed
+  yum: name=mysql-client state=present
+  tags: mysql
+
+#- name: be sure ntp is configured
+# template: src=ntp.conf.tpl dest=/etc/ntp.conf
+# notify:
+# - restart ntpd
+# tags: ntp
+
+#- name: be sure nginx is running and enabled
+#  service: name=mysql state=running enabled=yes
+#  tags: mysql

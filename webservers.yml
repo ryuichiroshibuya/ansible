@@ -5,3 +5,7 @@
    roles:
        - common
        - nginx
+       - mysql-client
+       - pyenv
+       - django
+       

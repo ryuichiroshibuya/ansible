@@ -1,0 +1,9 @@
+- name: install python ez_setup.py
+  shell: curl -O {{ url_ez_setup }} | python
+  tags:
+    - python-setup
+
+- name: install python pip
+  shell: curl -O {{ url_get_pip }} | python
+  tags:
+    - python-setup

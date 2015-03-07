@@ -1,3 +1,5 @@
 # file: group_vars/webservers
 apacheMaxRequestsPerChild: 3000
 apacheMaxClients: 900
+
+django-passwd: $1$salt$qJH7.N4xYta3aEG/dfqo/0

@@ -1,52 +1,119 @@
-Usage: ansible <host-pattern> [options]
+ansible role file for centos6
 
-Options:
-  -a MODULE_ARGS, --args=MODULE_ARGS
-                        module arguments
-  -k, --ask-pass        ask for SSH password
-  --ask-su-pass         ask for su password
-  -K, --ask-sudo-pass   ask for sudo password
-  --ask-vault-pass      ask for vault password
-  -B SECONDS, --background=SECONDS
-                        run asynchronously, failing after X seconds
-                        (default=N/A)
-  -C, --check           don't make any changes; instead, try to predict some
-                        of the changes that may occur
-  -c CONNECTION, --connection=CONNECTION
-                        connection type to use (default=smart)
-  -f FORKS, --forks=FORKS
-                        specify number of parallel processes to use
-                        (default=5)
-  -h, --help            show this help message and exit
-  -i INVENTORY, --inventory-file=INVENTORY
-                        specify inventory host file
-                        (default=/etc/ansible/hosts)
-  -l SUBSET, --limit=SUBSET
-                        further limit selected hosts to an additional pattern
-  --list-hosts          outputs a list of matching hosts; does not execute
-                        anything else
-  -m MODULE_NAME, --module-name=MODULE_NAME
-                        module name to execute (default=command)
-  -M MODULE_PATH, --module-path=MODULE_PATH
-                        specify path(s) to module library (default=None)
-  -o, --one-line        condense output
-  -P POLL_INTERVAL, --poll=POLL_INTERVAL
-                        set the poll interval if using -B (default=15)
-  --private-key=PRIVATE_KEY_FILE
-                        use this file to authenticate the connection
-  -S, --su              run operations with su
-  -R SU_USER, --su-user=SU_USER
-                        run operations with su as this user (default=root)
-  -s, --sudo            run operations with sudo (nopasswd)
-  -U SUDO_USER, --sudo-user=SUDO_USER
-                        desired sudo user (default=root)
-  -T TIMEOUT, --timeout=TIMEOUT
-                        override the SSH timeout in seconds (default=10)
-  -t TREE, --tree=TREE  log output to this directory
-  -u REMOTE_USER, --user=REMOTE_USER
-                        connect as this user (default=ec2_user)
-  --vault-password-file=VAULT_PASSWORD_FILE
-                        vault password file
-  -v, --verbose         verbose mode (-vvv for more, -vvvv to enable
-                        connection debugging)
-  --version             show program's version number and exit
+example:
+ansible-playbook -i inventory/production site.yml
+ansible-playbook -i inventory/production webservers.yml
+ansible-playbook -i inventory/production dbservers.yml
+
+ansible-playbook -i inventory/production webservers.yml --limit 172.16.100.200
+ansible-playbook -i inventory/production webservers.yml --tags nginx
+ansible-playbook -i inventory/production webservers.yml --tags nginx --limit 172.16.100.200
+
+
+|-- README.md
+|-- dbservers.yml
+|-- fooapp
+|-- group_vars
+|   |-- all
+|   |-- production
+|   `-- webservers
+|-- host_vars
+|   |-- 172.16.100.200
+|   |-- 172.16.100.201
+|   `-- 172.16.100.202
+|-- inventory
+|   |-- local
+|   |-- production
+|   `-- stage
+|-- library
+|   `-- filter_plugins
+|-- monitoring
+|-- production
+|-- roles
+|   |-- common
+|   |   |-- files
+|   |   |-- handlers
+|   |   |   `-- main.yml
+|   |   |-- meta
+|   |   |-- tasks
+|   |   |   |-- iptables.yml
+|   |   |   |-- main.yml
+|   |   |   |-- mysql.yml
+|   |   |   |-- ntp.yml
+|   |   |   |-- os.yml
+|   |   |   |-- postfix.yml
+|   |   |   `-- yum-upgrade.xml
+|   |   |-- templates
+|   |   |   |-- i18n.tpl
+|   |   |   |-- keyboard.tpl
+|   |   |   |-- ntp.conf.tpl
+|   |   |   |-- resolv.conf.tpl
+|   |   |   `-- selinux.tpl
+|   |   `-- vars
+|   |-- django
+|   |   |-- files
+|   |   |-- handlers
+|   |   |-- meta
+|   |   |-- tasks
+|   |   |   |-- django-account.yml
+|   |   |   `-- main.yml
+|   |   |-- templates
+|   |   `-- vars
+|   |-- mysql
+|   |   |-- files
+|   |   |-- handlers
+|   |   |-- meta
+|   |   |-- tasks
+|   |   |   `-- main.yml
+|   |   |-- templates
+|   |   `-- vars
+|   |-- mysql-client
+|   |   |-- files
+|   |   |-- handlers
+|   |   |   `-- main.yml
+|   |   |-- meta
+|   |   |-- tasks
+|   |   |   |-- main.yml
+|   |   |   `-- mysql-client.yml
+|   |   |-- templates
+|   |   `-- vars
+|   |-- mysql-server
+|   |   |-- files
+|   |   |-- handlers
+|   |   |-- meta
+|   |   |-- tasks
+|   |   |   |-- main.yml
+|   |   |   `-- mysql-server.yml
+|   |   |-- templates
+|   |   `-- vars
+|   |-- nginx
+|   |   |-- files
+|   |   |-- handlers
+|   |   |-- meta
+|   |   |-- tasks
+|   |   |   |-- main.yml
+|   |   |   `-- nginx.yml
+|   |   |-- templates
+|   |   `-- vars
+|   `-- pyenv
+|       |-- files
+|       |-- handlers
+|       |-- meta
+|       |-- tasks
+|       |   |-- main.yml
+|       |   |-- pyenv-django.yml
+|       |   |-- pyenv.yml
+|       |   |-- python-setup-django.yml
+|       |   `-- python-setup.yml
+|       |-- templates
+|       |   `-- bashrc.tpl
+|       `-- vars
+|           `-- main.yml
+|-- site.yml
+|-- stage
+|-- utils
+|   `-- init.sh
+|-- webservers.yml
+`-- webtier
+
+

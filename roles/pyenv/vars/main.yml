@@ -1,0 +1,6 @@
+owner: django
+group: django
+python_version: 2.7.9
+
+url_ez_setup: http://peak.telecommunity.com/dist/ez_setup.py
+url_get_pip: https://raw.github.com/pypa/pip/master/contrib/get-pip.py

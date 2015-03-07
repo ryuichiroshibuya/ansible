@@ -1,0 +1,8 @@
+
+- name: create group django
+  group: name=django gid=1000 state=present
+  tags: django-account
+
+- name: create accout django
+  user: name=django uid=1000 group=django
+  tags: django-account

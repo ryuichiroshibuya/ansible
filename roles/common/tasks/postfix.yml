@@ -2,5 +2,6 @@
 
 - name: be sure postfix is stopped and disabled
   service: name=postfix state=stopped enabled=no
+  ignore_errors: True
   tags: postfix
 

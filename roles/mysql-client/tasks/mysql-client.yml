@@ -1,0 +1,28 @@
+# file: roles/mysql-client/tasks/mysql-client.yml
+
+- name: be sure mysql is uninstalled
+  shell: killall -9 yum
+  ignore_errors: True
+  tags: mysql-client
+
+- name: be sure mysql is uninstalled
+  shell: yum remove -y mysql*
+  tags: mysql-client
+
+- name: be sure repo is installed
+  yum: name=http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm state=present
+  tags: mysql-client
+
+- name: be sure mysql-client is installed
+  shell: yum install -y mysql-community-common.x86_64 mysql-community-devel.x86_64 mysql-community-libs.x86_64 mysql-community-client.x86_64 mysql-community-libs-compat.x86_64 
+  tags: mysql-client
+
+#- name: be sure ntp is configured
+# template: src=ntp.conf.tpl dest=/etc/ntp.conf
+# notify:
+# - restart ntpd
+# tags: ntp
+
+#- name: be sure nginx is running and enabled
+#  service: name=mysql state=running enabled=yes
+#  tags: mysql

@@ -1,0 +1,8 @@
+# root
+- include: pyenv.yml
+- include: python-setup.yml
+
+# djago
+- include: pyenv-django.yml
+- include: python-setup-django.yml
+
