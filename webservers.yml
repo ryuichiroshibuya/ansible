@@ -3,9 +3,11 @@
    remote_user: ec2_user
    sudo: True
    roles:
+       - sshd
        - common
        - os-accout
        - nginx
        - mysql-client
        - pyenv
        - django
+

@@ -9,6 +9,8 @@ ansible-playbook -i inventory/production webservers.yml --limit 172.16.100.200
 ansible-playbook -i inventory/production webservers.yml --tags nginx
 ansible-playbook -i inventory/production webservers.yml --tags nginx --limit 172.16.100.200
 
+# ssh use private-key 
+ansible-playbook --private-key=~/Keys/ec.pem
 
 
 |-- DBREADME.md
@@ -119,24 +121,35 @@ ansible-playbook -i inventory/production webservers.yml --tags nginx --limit 172
 |   |   |   `-- main.yml
 |   |   |-- templates
 |   |   `-- vars
-|   `-- pyenv
+|   |-- pyenv
+|   |   |-- files
+|   |   |-- handlers
+|   |   |-- meta
+|   |   |-- tasks
+|   |   |   |-- main.yml
+|   |   |   |-- pyenv-django.yml
+|   |   |   |-- pyenv.yml
+|   |   |   |-- python-setup-django.yml
+|   |   |   `-- python-setup.yml
+|   |   |-- templates
+|   |   |   `-- bashrc.tpl
+|   |   `-- vars
+|   |       `-- main.yml
+|   `-- sshd
 |       |-- files
 |       |-- handlers
 |       |-- meta
 |       |-- tasks
 |       |   |-- main.yml
-|       |   |-- pyenv-django.yml
-|       |   |-- pyenv.yml
-|       |   |-- python-setup-django.yml
-|       |   `-- python-setup.yml
+|       |   `-- mod-sshdconf.yml
 |       |-- templates
-|       |   `-- bashrc.tpl
 |       `-- vars
-|           `-- main.yml
 |-- site.yml
 |-- stage
 |-- utils
 |   `-- init.sh
 |-- webservers.yml
 `-- webtier
+
+73 directories, 64 files
 
