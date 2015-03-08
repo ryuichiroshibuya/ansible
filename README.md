@@ -10,6 +10,8 @@ ansible-playbook -i inventory/production webservers.yml --tags nginx
 ansible-playbook -i inventory/production webservers.yml --tags nginx --limit 172.16.100.200
 
 
+
+|-- DBREADME.md
 |-- README.md
 |-- dbservers.yml
 |-- fooapp
@@ -18,6 +20,7 @@ ansible-playbook -i inventory/production webservers.yml --tags nginx --limit 172
 |   |-- production
 |   `-- webservers
 |-- host_vars
+|   |-- 172.16.100.20
 |   |-- 172.16.100.200
 |   |-- 172.16.100.201
 |   `-- 172.16.100.202
@@ -55,10 +58,18 @@ ansible-playbook -i inventory/production webservers.yml --tags nginx --limit 172
 |   |   |-- handlers
 |   |   |-- meta
 |   |   |-- tasks
-|   |   |   |-- django-account.yml
-|   |   |   `-- main.yml
+|   |   |   |-- create-mysite.yml
+|   |   |   |-- main.yml
+|   |   |   |-- requestments.yml
+|   |   |   `-- setup-uwsgi.yml
 |   |   |-- templates
+|   |   |   |-- uwsgi.ini
+|   |   |   |-- uwsgi.sh
+|   |   |   |-- uwsgi.shell
+|   |   |   |-- uwsgi.sysconfig
+|   |   |   `-- uwsgi.yaml
 |   |   `-- vars
+|   |       `-- main.yml
 |   |-- mysql
 |   |   |-- files
 |   |   |-- handlers
@@ -92,7 +103,20 @@ ansible-playbook -i inventory/production webservers.yml --tags nginx --limit 172
 |   |   |-- meta
 |   |   |-- tasks
 |   |   |   |-- main.yml
+|   |   |   |-- nginx-deploy.yml
 |   |   |   `-- nginx.yml
+|   |   |-- templates
+|   |   |   |-- http.conf.tpl
+|   |   |   `-- nginx.conf.tpl
+|   |   `-- vars
+|   |       `-- main.yml
+|   |-- os-accout
+|   |   |-- files
+|   |   |-- handlers
+|   |   |-- meta
+|   |   |-- tasks
+|   |   |   |-- django-account.yml
+|   |   |   `-- main.yml
 |   |   |-- templates
 |   |   `-- vars
 |   `-- pyenv
@@ -115,5 +139,4 @@ ansible-playbook -i inventory/production webservers.yml --tags nginx --limit 172
 |   `-- init.sh
 |-- webservers.yml
 `-- webtier
-
 
