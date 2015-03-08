@@ -1,0 +1,12 @@
+uwsgi:
+  socket: 127.0.0.1:9090
+  master: true
+  no-orphans: true
+  touch-reload: /tmp/reload.txt
+  processes: 1
+  uid: django
+  gid: django
+  chdir: /home/django/apps/mysite
+  env: DJANGO_SETTINGS_MODULE=mysite.settings
+  module: django.core.handlers.wsgi:WSGIHandler()
+  daemonize: /home/django/uwsgi.log

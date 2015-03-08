@@ -1,5 +1,6 @@
 owner: django
 group: django
+home: /home/django/
 python_version: 2.7.9
 
 url_ez_setup: http://peak.telecommunity.com/dist/ez_setup.py

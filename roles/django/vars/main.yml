@@ -1,0 +1,7 @@
+apps_dir: /home/django/apps
+project: mysite
+
+requestments:
+   - Django==1.6.8
+   - mysql-python
+   - uwsgi

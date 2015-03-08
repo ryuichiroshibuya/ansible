@@ -1,0 +1,20 @@
+
+- name: install uwsgi conf
+  template: src=uwsgi.yaml dest=/etc/uwsgi.yaml owner=root group=root mode=0644
+  tags:
+    - uwsgi
+
+- name: install uwsgi shell
+  template: src=uwsgi.shell dest=/etc/init.d/uwsgi owner=root group=root mode=0744
+  tags:
+    - uwsgi
+
+- name: chkconfig add uwsgi 
+  shell: chkconfig --add uwsgi
+  tags:
+    - uwsgi
+
+- name: chkconfig uwsgi on
+  shell: chkconfig uwsgi on
+  tags:
+    - uwsgi

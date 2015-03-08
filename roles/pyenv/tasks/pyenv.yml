@@ -14,8 +14,8 @@
   tags:
     - pyenv
 
-- name: pyenv install 2.7.9
-  shell: ~/.pyenv/bin/pyenv install 2.7.9
+- name: pyenv install {{ python_version }}
+  shell: ~/.pyenv/bin/pyenv install {{ python_version }}
   tags:
     - pyenv
 
@@ -24,7 +24,7 @@
   tags:
     - pyenv
 
-- name: pyenv global 2.7.9
-  shell: ~/.pyenv/bin/pyenv global 2.7.9
+- name: pyenv global {{ python_version }}
+  shell: ~/.pyenv/bin/pyenv global {{ python_version }}
   tags:
     - pyenv

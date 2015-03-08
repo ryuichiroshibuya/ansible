@@ -1,0 +1,9 @@
+- name: deploy http.conf
+  template: src=nginx.conf.tpl dest=/etc/nginx/nginx.conf owner=nginx group=nginx
+  tags:
+    - nginx-deploy
+
+- name: be sure nginx is running and enabled
+  service: name=nginx state=restarted enabled=yes
+  tags: 
+    - nginx-deploy

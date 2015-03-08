@@ -2,3 +2,5 @@
 #foo_agent_port: 86
 #bar_agent_port: 99
 servername: ec201
+
+nginx_servername: ec201.example.com

@@ -4,8 +4,8 @@
    sudo: True
    roles:
        - common
+       - os-accout
        - nginx
        - mysql-client
        - pyenv
        - django
-       

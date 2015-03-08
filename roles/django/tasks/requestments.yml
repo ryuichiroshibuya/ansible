@@ -1,0 +1,16 @@
+- name: test
+  command: sudo su - {{ owner }} -c -l "LANG=C id"
+  register: result
+  tags:
+    - pip-install
+
+- name: test
+  debug: var=result.stdout_lines
+  tags:
+    - pip-install
+
+- name: install requestments
+  shell: sudo su - {{ owner }} -c -l "pip install {{ item }}"
+  with_items: requestments
+  tags:
+    - pip-install

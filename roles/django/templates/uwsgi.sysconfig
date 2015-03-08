@@ -1,0 +1,5 @@
+# Configuration file for the uwsgi service.
+
+UWSGI=/usr/local/bin/uwsgi
+CONFFILE=/etc/uwsgi.yaml
+LOCKFILE=/var/lock/subsys/uwsgi

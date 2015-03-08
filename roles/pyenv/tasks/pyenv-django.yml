@@ -10,7 +10,7 @@
     - pyenv-django
 
 - name: template bashrc
-  template: src=bashrc.tpl dest=/home/{{ owner }}/.bashrc owner={{ owner }} group={{ group }}
+  template: src=bashrc.tpl dest=/{{ home }}/.bashrc owner={{ owner }} group={{ group }}
   tags:
     - pyenv-django
 
