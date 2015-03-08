@@ -1,0 +1,12 @@
+# file: production
+
+[aws-webservers]
+52.74.13.118
+
+# webservers in all geos
+[webservers:children]
+aws-webservers
+
+# everything in the esx geo
+[aws:children]
+aws-webservers

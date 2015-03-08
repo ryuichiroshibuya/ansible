@@ -1,6 +1,6 @@
 # file: webservers.yml
  - hosts: webservers
-   remote_user: ec2_user
+   remote_user: ec2-user
    sudo: True
    roles:
        - sshd

@@ -30,4 +30,13 @@ mysql> show tables;
 
 
 #django static/admin
+mysite/mysite/settings.py
+import os
+import sys
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+
 python manage.py collectstatic
