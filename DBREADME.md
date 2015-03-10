@@ -40,3 +40,4 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 python manage.py collectstatic
+python manage.py collectstatic --noinput
