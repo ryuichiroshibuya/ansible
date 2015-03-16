@@ -1,0 +1,4 @@
+
+grant all on radiodev.* to 'devuser'@'localhost' identified by 'password';
+grant all on radiodev.* to 'devuser'@'192.168.10.%' identified by 'password';
+grant all on radiodev.* to 'devuser'@'172.168.100.%' identified by 'password';

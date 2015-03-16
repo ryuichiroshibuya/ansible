@@ -10,6 +10,7 @@ mkdir -p library/filter_plugins
 touch webservers.yml
 touch dbservers.yml
 mkdir -p roles/{common,mysql,django,nginx,django,pyenv,sshd}/{tasks,files,templates,vars,handlers,meta}
+mkdir -p roles/mongodb/{tasks,files,templates,vars,handlers,meta}
 mkdir -p webtier
 mkdir -p monitoring
 mkdir -p fooapp

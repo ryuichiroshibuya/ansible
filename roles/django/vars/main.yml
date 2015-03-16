@@ -6,3 +6,5 @@ requestments:
    - Django==1.6.8
    - mysql-python
    - uwsgi
+   - pymongo
+   - django-bootstrap-form

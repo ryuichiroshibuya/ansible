@@ -21,18 +21,27 @@ http {
     gzip             on;
     gzip_disable     "MSIE [1-6]\.";
 
+    upstream backend {
+       server 127.0.0.1:8000;
+    }
     server {
         listen       80;
         server_name  {{ server_name }};
 
 
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Real-IP $remote_addr;
+
         location / {
-            include     uwsgi_params;
-            uwsgi_pass  {{ uwsgi_pass }};
-       }
+           proxy_pass http://backend/;
+           include uwsgi_params;
+        }
 
         location /static/admin {
-            alias {{ alias }};
+            alias /home/django/apps/mysite/static/admin;
         }
 
     }

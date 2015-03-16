@@ -1,0 +1,4 @@
+- name: install openssh-clients
+  yum: name=openssh-clients state=present
+  tags:
+    - openssh-clients

@@ -1,1 +1,2 @@
 - include: mod-sshdconf.yml
+- include: setup-openssh-clients.yml
